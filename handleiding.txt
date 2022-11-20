@@ -1,0 +1,52 @@
+Handleiding SuperPy
+-------------------
+
+Dit document bevat de beknopte handleiding voor het gebruik van het programma Superpy. Het programma bestaat uit 1 Python bestand (main.pi) en een aantal databestanden (bought.csv, sold.csv en current_date.txt).
+Om gebruik te maken van de opdrachten die SuperPy ondersteunt dient gebruik te worden gemaakt van de terminal (CMD) om daarin de opdrachten in te voeren.
+
+Databestanden
+-------------
+
+In de subdirectory Data worden de volgende bestanden opgeslagen:
+	bought.csv		(inkoopregels)
+	sold.csv		(verkoopregels)
+	current_date.txt	(interne datum)
+
+Opdrachten
+----------
+
+Het programma maakt gebruik van een parser waarmee opdrachten via de Windows terminal kunnen worden verwerkt.
+De volgende opdrachten kunnen worden gebruikt:
+
+Inkopen van producten (en toevoegen aan voorraadlijst):
+	python main.py buy --product-name orange --price 0.8 --expiration-date 2020-01-01
+
+Verkopen van producten:
+NB. producten kunnen worden verkocht zolang er nog niet-verkochte voorraad aanwezig is.
+	python main.py sell --product-name orange --price 2
+	python main.py sell --product-name orange --price 2
+
+Interne datum aanpassen:
+	python main.py --advance-time 2
+
+Rapportage voorraadlijst:
+	python main.py report inventory --now
+	python main.py report inventory --yesterday
+	python main.py report inventory --now
+
+Rapportage (totaalbedrag) omzet:
+	python main.py report revenue --yesterday
+	python main.py report revenue --today
+	python main.py report revenue --date 2019-12-01
+
+Rapportage (totaalbedrag) winst/verlies:
+	python main.py report profit --today
+
+Grafische representatie van omzet per jaar:
+	python main.py graph -Y 2022
+
+Output
+------
+
+Zodra een opdracht is verwerkt zal dit duidelijk worden weergegeven via de terminal (CMD). Hier verschijnt een "OK" melding, tenzij de opdracht niet kon worden uitgevoerd. Uitzondering is de grafische representatie van de omzet per jaar. Deze wordt in een separaat scherm getoond.
+
