@@ -27,7 +27,11 @@ NB. producten kunnen worden verkocht zolang er nog niet-verkochte voorraad aanwe
 	python main.py sell --product-name orange --price 2
 
 Interne datum aanpassen:
-	python main.py --advance-time 2
+Het aanpassen van de interne datum gebeurt altijd ten opzichte van de huidige datum in de reële wereld. 
+Als de datum dus eerst op 'morgen' en daarna op 'gisteren' moet worden ingesteld, dan wordt hiervoor resp. de waarde -1 en +1 gebruikt:
+	python main.py --advance-time 1  # stel de datum in op morgen
+	python main.py --advance-time 0  # stel de datum in op vandaag
+	python main.py --advance-time -1 # stel de datum in op gisteren
 
 Rapportage voorraadlijst:
 	python main.py report inventory --now
