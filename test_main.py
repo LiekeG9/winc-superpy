@@ -4,15 +4,16 @@
 
 import main
 import classes
-import constants
-import inventory
-import datetime
 import current_date
-import helpers
+import datetime
+import calculate_amounts
 
 # create a number of Bought rows (and do some checks on a few fields)
 def test_current_date():
-    pass
+    current_date.SaveReportDateToFile(0)    # stel interne datum in als huidige datum
+    current_date.LoadReportDateFromFile()   # haal interne datum op uit bestand
+    
+    assert current_date.report_date == datetime.datetime.today().strftime("%Y-%m-%d")
 
 def test_bought():
     main.list_bought.clear()
@@ -36,3 +37,7 @@ def test_sold():
     assert main.list_sold[0].sell_price == 2.50
     assert main.list_sold[1].sell_date == '2022-10-02'
     assert main.list_sold[2].sell_price == 4.25
+
+def test_revenue():
+    # taking into account the above test methods, with buy and sell actions on 5 Oct 2022, the revenue should be EUR x.xx
+    print(calculate_amounts.GetRevenue('2022-10-05', '2022-10-05', main.list_sold))

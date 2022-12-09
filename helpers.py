@@ -1,6 +1,5 @@
 import locale
 import csv
-import constants
 import os.path
 from rich.console import Console
 from rich.table import Table
@@ -28,14 +27,14 @@ def ExtraZero(fInt):
 
 # format money in Dutch format, e.g. € 1.999,95
 def FormatMoney(fValue):
-    locale.setlocale(locale.LC_ALL, "nl_NL")
+    locale.setlocale(locale.LC_ALL, '') # use the settings of the user's operating system
     tmpMoneyStr = locale.currency(fValue, grouping=True)
     return tmpMoneyStr
 
 # check if file exists and, if not, then create new file
 def CreateFileIfNotExists(fFilename, fHeader):
-    if not os.path.exists(constants.DIR_PATH + fFilename):
-        with open(constants.DIR_PATH + fFilename, 'w', newline='') as csvfile:
+    if not os.path.exists(fFilename):
+        with open(fFilename, 'w', newline='') as csvfile:
             csvwriter = csv.writer(csvfile, delimiter=";")
             csvwriter.writerow(fHeader)
 

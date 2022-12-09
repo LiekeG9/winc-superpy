@@ -5,7 +5,7 @@ import helpers
 
 # generic export method for all data which must be stored as CSV files
 def export_to_csv(fFilename, fFields, fObjList):
-    with open(constants.DIR_PATH + fFilename, 'w', newline='') as csvfile:
+    with open(fFilename, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile, delimiter=";")
         csvwriter.writerow(fFields)
         for obj in fObjList:
@@ -18,7 +18,7 @@ def export_to_csv(fFilename, fFields, fObjList):
 def import_from_csv(fFilename, fFields, fObjList):
     helpers.CreateFileIfNotExists(fFilename, fFields)
     fObjList.clear()
-    with open(constants.DIR_PATH + fFilename, 'r', newline='') as csvfile:
+    with open(fFilename, 'r', newline='') as csvfile:
         csvreader = csv.reader(csvfile, delimiter=';')
         fields = next(csvreader)
         for row in csvreader:

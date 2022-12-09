@@ -32,6 +32,9 @@ Als de datum dus eerst op 'morgen' en daarna op 'gisteren' moet worden ingesteld
 	python main.py --advance-time 1  # stel de datum in op morgen
 	python main.py --advance-time 0  # stel de datum in op vandaag
 	python main.py --advance-time -1 # stel de datum in op gisteren
+De aanpassen van de interne datum kan ook uitgevoerd worden voorafgaand aan een inkoop- of verkoopopdracht, bijvoorbeeld:
+	python main.py -a -2 buy -n pindakaas -p 2.95 -e 2099-12-31
+	python main.py -a 1 sell -n pindakaas -p 4.99
 
 Rapportage voorraadlijst:
 	python main.py report inventory --now

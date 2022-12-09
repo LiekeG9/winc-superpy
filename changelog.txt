@@ -1,0 +1,5 @@
+Tot nu toe had ik de tests alleen uitgevoerd op een Windows machine. 
+Ik heb een aantal wijzigingen doorgevoerd waarmee SuperPy nu ook draait op een Linux systeem.
+Daarna heb ik getest op een computer met Windows 10 alsook op een Raspberry PI voorzien van Debian Linux.
+- Locale functie aangepast; hier wordt voortaan gebruik gemaakt van de regionale instellingen van het operating system;
+- Functies die iets met directories doen voorzien van os.path.join() zodat het niet meer uitmaakt of de gebruiker met Windows of Linux werkt.

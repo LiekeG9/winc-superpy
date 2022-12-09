@@ -8,7 +8,7 @@ report_date = "1900-01-01"
 def LoadReportDateFromFile():
     global report_date
     helpers.CreateFileIfNotExists(constants.FILE_CURRENT_DATE, [datetime.datetime.today().strftime("%Y-%m-%d")])
-    with open(constants.DIR_PATH + constants.FILE_CURRENT_DATE) as f:
+    with open(constants.FILE_CURRENT_DATE) as f:
         tmpLines = f.readlines()
     report_date = tmpLines[0].strip()
 
@@ -16,5 +16,5 @@ def LoadReportDateFromFile():
 def SaveReportDateToFile(fAdvanceTime):
     tmpToday = datetime.datetime.now()
     tmpNewDate = tmpToday + datetime.timedelta(days=fAdvanceTime)
-    with open(constants.DIR_PATH + constants.FILE_CURRENT_DATE, 'w') as f:
+    with open(constants.FILE_CURRENT_DATE, 'w') as f:
         f.write(tmpNewDate.strftime("%Y-%m-%d"))
